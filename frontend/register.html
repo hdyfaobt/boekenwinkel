@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registreren - Boekenwinkel</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <strong>Boekenwinkel</strong>
+    <nav id="nav"></nav>
+  </header>
+  <main>
+    <h1>Registreren</h1>
+    <form id="form" class="form">
+      <label>Gebruikersnaam <input name="username" required minlength="3" maxlength="30"></label>
+      <label>E-mail <input name="email" type="email" required></label>
+      <label>Wachtwoord (min. 6 tekens) <input name="password" type="password" required minlength="6"></label>
+      <button>Account aanmaken</button>
+      <p id="message"></p>
+    </form>
+  </main>
+  <script src="js/api.js"></script>
+  <script src="js/register.js"></script>
+</body>
+</html>

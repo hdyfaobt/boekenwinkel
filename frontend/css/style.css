@@ -1,0 +1,279 @@
+/*
+ * Stijl van de boekenwinkel.
+ * Eenvoudig en rustig: één accentkleur, duidelijke randen, geen schaduwen of gradiënten.
+ * Alle kleuren staan bovenaan als variabelen, zodat je ze op één plek kan aanpassen.
+ */
+
+:root {
+  --bg: #f7f5f0;        /* achtergrond, licht papier */
+  --surface: #ffffff;   /* kaarten en formulieren */
+  --text: #1f1f1f;
+  --muted: #6b6b6b;
+  --border: #e2ded5;
+  --accent: #2f5d50;    /* donkergroen */
+  --accent-dark: #234539;
+  --ok: #2e7d32;
+  --error: #b3261e;
+  --radius: 6px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background: var(--bg);
+  color: var(--text);
+}
+
+h1, h2, h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: normal;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0 0 24px;
+}
+
+h2 {
+  font-size: 1.35rem;
+  margin: 32px 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+a {
+  color: var(--accent);
+}
+
+a:hover {
+  color: var(--accent-dark);
+}
+
+/* ---------- Header en navigatie ---------- */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 16px max(16px, calc((100% - 960px) / 2));
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+header strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.4rem;
+  font-weight: normal;
+  color: var(--accent);
+}
+
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+header nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+header nav a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 16px 64px;
+}
+
+/* ---------- Catalogus ---------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  margin-bottom: 12px;
+}
+
+.grid .card {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+  border-top: 3px solid var(--accent);
+}
+
+.grid .card:hover {
+  border-color: var(--accent);
+}
+
+.card h3 {
+  margin: 0 0 4px;
+  font-size: 1.15rem;
+}
+
+.card h3 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.card h3 a:hover {
+  color: var(--accent);
+}
+
+.card p {
+  margin: 4px 0;
+}
+
+.card ul {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+
+/* ---------- Detailpagina van een boek ---------- */
+
+#book {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+}
+
+#book h1 {
+  margin-bottom: 4px;
+}
+
+#reserve {
+  margin-top: 16px;
+}
+
+/* ---------- Formulieren ---------- */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 380px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.inline {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.inline label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.inline input {
+  width: 90px;
+}
+
+input, select, button {
+  font: inherit;
+  font-size: 0.95rem;
+  padding: 8px 10px;
+  border-radius: var(--radius);
+}
+
+input, select {
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid #cfcac0;
+}
+
+input:focus, select:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-color: var(--accent);
+}
+
+button {
+  background: var(--accent);
+  color: white;
+  border: 1px solid var(--accent);
+  cursor: pointer;
+  padding: 8px 16px;
+}
+
+button:hover {
+  background: var(--accent-dark);
+}
+
+button:disabled {
+  background: #a5a5a5;
+  border-color: #a5a5a5;
+  cursor: not-allowed;
+}
+
+.review-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.review-form input {
+  flex: 1;
+  min-width: 180px;
+}
+
+/* ---------- Teksthelpers ---------- */
+
+.muted {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.ok {
+  color: var(--ok);
+}
+
+.error {
+  color: var(--error);
+}
+
+#message:empty,
+#reserve-message:empty {
+  display: none;
+}
