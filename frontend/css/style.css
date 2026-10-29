@@ -277,3 +277,16 @@ button:disabled {
 #reserve-message:empty {
   display: none;
 }
+
+/* ---------- Zoekbalk ---------- */
+
+.search {
+  display: flex;
+  gap: 8px;
+  max-width: 480px;
+  margin-bottom: 24px;
+}
+
+.search input {
+  flex: 1;
+}

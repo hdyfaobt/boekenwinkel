@@ -30,7 +30,7 @@ public class DataSeeder implements CommandLineRunner {
             return;
         }
         bookRepository.saveAll(List.of(
-                new Book("9780132350884", "Harry Potter", List.of("JK Rowling"),
+                new Book("9780747532699", "Harry Potter", List.of("JK Rowling"),
                         "Harry Potter is een reeks fantasyromans geschreven door de Britse schrijfster J.K. Rowling.", new BigDecimal("42.50"), 5),
                 new Book("9780134685991", "Het leven van een loser", List.of("Jeff Kinney"),
                         "Het leven van een loser is een populaire kinderboekenreeks geschreven door de Amerikaanse auteur Jeff Kinney.", new BigDecimal("39.99"), 10),

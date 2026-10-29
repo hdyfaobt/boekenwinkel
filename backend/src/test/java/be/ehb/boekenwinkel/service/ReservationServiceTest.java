@@ -47,17 +47,17 @@ class ReservationServiceTest {
     void setUp() {
         service = new ReservationService(reservationRepository, bookRepository);
         user = new User("houde", "houde@test.be", "hash");
-        new Book("9780132350884", "Harry Potter", List.of("JK Rowling"),
+        book = new Book("9780747532699", "Harry Potter", List.of("JK Rowling"),
                 "Harry Potter is een reeks fantasyromans geschreven door de Britse schrijfster J.K. Rowling.", new BigDecimal("42.50"), 5);
     }
 
     @Test
     void reservatieVerlaagtDeStockEnGeeftAfhaaldatum() {
-        when(bookRepository.findById("9780132350884")).thenReturn(Optional.of(book));
+        when(bookRepository.findById("9780747532699")).thenReturn(Optional.of(book));
         when(reservationRepository.save(any(Reservation.class))).thenAnswer(call -> call.getArgument(0));
 
         ReservationDto result = service.reserve(user,
-                new ReservationRequest(List.of(new ReservationRequest.Line("9780132350884", 2))));
+                new ReservationRequest(List.of(new ReservationRequest.Line("9780747532699", 2))));
 
         assertEquals(3, book.getStock());
         assertEquals(LocalDate.now().plusDays(ReservationService.DAYS_UNTIL_PICKUP), result.pickupDate());
@@ -68,10 +68,10 @@ class ReservationServiceTest {
 
     @Test
     void teWeinigStockGeeft409EnSlaatNietsOp() {
-        when(bookRepository.findById("9780132350884")).thenReturn(Optional.of(book));
+        when(bookRepository.findById("9780747532699")).thenReturn(Optional.of(book));
 
         ResponseStatusException e = assertThrows(ResponseStatusException.class, () -> service.reserve(user,
-                new ReservationRequest(List.of(new ReservationRequest.Line("9780132350884", 6)))));
+                new ReservationRequest(List.of(new ReservationRequest.Line("9780747532699", 6)))));
 
         assertEquals(HttpStatus.CONFLICT, e.getStatusCode());
         assertEquals(5, book.getStock());

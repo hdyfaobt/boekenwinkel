@@ -30,7 +30,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 class BoekenwinkelApiTest {
 
-    private static final String ISBN = "9780132350884";
+    private static final String ISBN = "9780747532699";
 
     @Autowired
     private MockMvc mockMvc;
@@ -49,7 +49,7 @@ class BoekenwinkelApiTest {
         reservationRepository.deleteAll();
         userRepository.deleteAll();
         bookRepository.deleteAll();
-        bookRepository.save(new Book(ISBN, "Clean Code", List.of("Robert C. Martin"), "", new BigDecimal("42.50"), 5));
+        bookRepository.save(new Book(ISBN, "Harry Potter", List.of("JK Rowling"), "", new BigDecimal("42.50"), 5));
     }
 
     /** Registreert een gebruiker, logt in en geeft de Authorization-header terug. */
