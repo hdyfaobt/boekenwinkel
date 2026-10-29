@@ -124,6 +124,16 @@ public class UserService {
         return salt + ":" + sha256(salt + password);
     }
 
+
+
+
+
+
+
+
+
+
+
     private boolean checkPassword(String password, String stored) {
         String[] parts = stored.split(":");
         return parts.length == 2 && MessageDigest.isEqual(

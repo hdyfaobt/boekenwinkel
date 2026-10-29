@@ -47,7 +47,8 @@ class ReservationServiceTest {
     void setUp() {
         service = new ReservationService(reservationRepository, bookRepository);
         user = new User("houde", "houde@test.be", "hash");
-        book = new Book("9780132350884", "Clean Code", List.of("Robert C. Martin"), "", new BigDecimal("42.50"), 5);
+        new Book("9780132350884", "Harry Potter", List.of("JK Rowling"),
+                "Harry Potter is een reeks fantasyromans geschreven door de Britse schrijfster J.K. Rowling.", new BigDecimal("42.50"), 5);
     }
 
     @Test
